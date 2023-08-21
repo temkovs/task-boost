@@ -3,8 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="referrer" content="origin-when-cross-origin" />
 
-        <title inertia>{{ config('app.name', '- Task Boost') }}</title>
+        <title inertia>{{ config('app.name', 'Task Boost') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
