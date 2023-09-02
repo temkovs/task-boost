@@ -1,6 +1,7 @@
 <template>
     <main>
         <hero-section />
+        <contact-us />
     </main>
 </template>
 
@@ -14,6 +15,7 @@ export default {
 
 <script setup>
 import HeroSection from "@/Components/Homepage/HeroSection.vue";
+import ContactUs from "@/Components/Homepage/ContactUs.vue";
 </script>
 
 <style scoped>
