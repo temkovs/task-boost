@@ -3,7 +3,7 @@
         <base-modal
             id="registerModal"
             :close-button="false"
-            title="Регистрирај се"
+            title="Register"
             @submit="submit"
             @instance="(_) => (modal = _)"
         >
@@ -14,7 +14,7 @@
                         class="mb-3"
                         name="name"
                         label=""
-                        placeholder="Име и презиме *"
+                        placeholder="Name & Surname *"
                         type="text"
                         :invalid="form.errors.name"
                     />
@@ -22,7 +22,7 @@
                         v-model:value="form.email"
                         name="email"
                         label=""
-                        placeholder="Е-пошта *"
+                        placeholder="E-mail *"
                         class="mb-3"
                         type="email"
                         :invalid="form.errors.email"
@@ -32,7 +32,7 @@
                         class="mb-3"
                         name="phone"
                         label=""
-                        placeholder="Телефонски број"
+                        placeholder="Phone Number"
                         type="tel"
                         :invalid="form.errors.phone"
                     />
@@ -43,68 +43,26 @@
                     class-label="text-dark"
                     class="mb-3 position-relative"
                     name="password"
-                    placeholder="Лозинка *"
+                    placeholder="Password *"
                     label=""
                     type="password"
                     :invalid="form.errors.password"
                 />
-                <div class="form-check mb-2">
-                    <label
-                        class="form-check-label text-dark"
-                        for="agree-with-terms"
-                    >
-                        Ги прифаќам сите
-                        <a
-                            :href="route('homepage')"
-                            target="_blank"
-                        >
-                            услови за користење
-                        </a>
-                    </label>
-                    <input
-                        id="agree-with-terms"
-                        v-model="agree_with_terms"
-                        class="form-check-input"
-                        type="checkbox"
-                    />
-                </div>
-                <div class="form-check">
-                    <input
-                        id="agree-with-videos"
-                        v-model="wont_share_videos"
-                        class="form-check-input"
-                        type="checkbox"
-                    />
-                    <label
-                        class="form-check-label text-dark"
-                        for="agree-with-videos"
-                    >
-                        Се согласувам дека нема да го споделувам видео
-                        материјалот со никого
-                    </label>
-                </div>
             </template>
             <template #footer>
                 <div class="d-flex flex-column w-100">
                     <div>
                         <button
                             type="submit"
-                            class="w-100 rounded-3 btn btn-primary text-white px-4 px-sm-5 py-2 fw-light mb-4"
-                            :disabled="
-                                form.processing ||
-                                !agree_with_terms ||
-                                !wont_share_videos
-                            "
+                            class="w-100 btn btn-primary text-white px-4 text-white"
                         >
-                            Регистрирај се
+                            Register
                         </button>
                     </div>
 
-                    <div
-                        class="w-100 border-top border-1 border-DCDCDC mb-4"
-                    ></div>
+                    <div class="w-100 border-top border-1 border-DCDCDC my-4"></div>
                     <div class="col-12 text-center small">
-                        <span class="text-dark">Веќе си член?</span>
+                        <span class="text-dark">Do you have an account?</span>
                         <button
                             data-bs-toggle="modal"
                             data-bs-target="#signInModal"
@@ -112,7 +70,7 @@
                             class="text-primary bg-transparent border-0 fw-semibold"
                             @click="(e) => e.preventDefault()"
                         >
-                            Најави се
+                            Sign In
                         </button>
                     </div>
                 </div>
@@ -141,9 +99,6 @@ const form = useForm({
     gender: "",
     password: "",
 });
-
-const agree_with_terms = ref(false);
-const wont_share_videos = ref(false);
 
 const route = inject("route");
 const modal = ref(null);
