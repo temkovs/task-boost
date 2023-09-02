@@ -3,7 +3,7 @@
         <base-modal
             id="signInModal"
             :close-button="false"
-            title="Најави се"
+            title="Sign In"
             @submit="submit"
             @instance="(_) => (modal = _)"
         >
@@ -14,7 +14,7 @@
                         class="mb-3"
                         name="email"
                         label=""
-                        placeholder="Е-пошта"
+                        placeholder="E-mail"
                         type="email"
                         :invalid="form.errors.email"
                     />
@@ -22,7 +22,7 @@
                         v-model:value="form.password"
                         class="position-relative mb-3"
                         name="password"
-                        placeholder="Лозинка"
+                        placeholder="Password"
                         label=""
                         type="password"
                         :invalid="form.errors.password"
@@ -35,29 +35,22 @@
                 >
                     <button
                         type="submit"
-                        class="rounded-3 btn btn-primary text-white px-4 px-sm-5 py-2 fw-light"
+                        class="btn btn-primary text-white w-100 py-2 fw-light"
                         :disabled="form.processing"
                     >
-                        Најави се
+                        Sign In
                     </button>
-<!--                    <div-->
-<!--                        data-bs-toggle="modal"-->
-<!--                        data-bs-target="#openForgetPasswordModal"-->
-<!--                        class="small text-end text-dark cursor-pointer"-->
-<!--                    >-->
-<!--                        Заборавена лозинка?-->
-<!--                    </div>-->
                 </div>
                 <div class="w-100 border-top border-1 border-DCDCDC mb-4"></div>
                 <div class="col-12 text-center small">
-                    <span class="text-dark">Не си член на Task Boost?</span>
+                    <span class="text-dark">If you don't have an account</span>
                     <button
                         data-bs-toggle="modal"
                         data-bs-target="#registerModal"
                         class="text-primary bg-transparent border-0 fw-semibold"
                         @click="(e) => e.preventDefault()"
                     >
-                        Регистрирај се
+                        Register
                     </button>
                 </div>
             </template>
@@ -72,8 +65,8 @@ export default {
 </script>
 <script setup>
 import BaseModal from "./BaseModal.vue";
-import { inject, ref } from "vue";
-import { useForm } from "@inertiajs/vue3";
+import {inject, ref} from "vue";
+import {useForm} from "@inertiajs/vue3";
 import BaseInput from "../Components/BaseComponents/BaseInput.vue";
 
 const route = inject("route");

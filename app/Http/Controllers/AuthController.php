@@ -31,7 +31,7 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Погрешни податоци за најава.',
+            'email' => 'non-existing email address.',
         ])->onlyInput('email');
     }
 

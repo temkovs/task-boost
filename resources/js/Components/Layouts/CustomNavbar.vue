@@ -1,6 +1,6 @@
 <template>
     <nav
-        class="py-3 position-sticky sticky-top navbar navbar-dark navbar-expand-lg bg-primary"
+        class="py-3 position-sticky sticky-top navbar navbar-dark navbar-expand-lg bg-dark"
     >
         <div class="position-relative container d-flex justify-content-between">
             <div>
@@ -50,7 +50,7 @@
                         :class="{
                             'mb-3 mb-lg-0': i !== navLinks.length - 1,
                         }"
-                        class="nav-item me-lg-4"
+                        class="nav-item me-lg-5"
                     >
                         <a
                             :href="
@@ -66,7 +66,7 @@
                 </div>
                 <ul
                     v-if="!user"
-                    class="navbar-nav d-flex align-items-center gap-4 py-3 py-lg-0"
+                    class="navbar-nav d-flex align-items-center gap-4 gap-lg-0 py-3 py-lg-0"
                 >
                     <li class="nav-item">
                         <button
@@ -74,16 +74,16 @@
                             data-bs-toggle="modal"
                             class="btn border-0 bg-transparent px-0 text-white"
                         >
-                            Најави се
+                            Log In
                         </button>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ms-lg-5">
                         <button
                             data-bs-target="#registerModal"
                             data-bs-toggle="modal"
-                            class="btn btn-primary text-white border-1 border-white rounded-3 px-4 py-sm-2 text-white"
+                            class="btn btn-primary text-white px-4 text-white"
                         >
-                            Регистрирај се
+                            Register
                         </button>
                     </li>
                 </ul>
@@ -106,7 +106,7 @@
                     >
                         <i class="fa fa-user text-dark"></i>
                     </div>
-                    <strong class="d-none d-lg-block text-white">
+                    <strong class="d-none d-lg-block text-white pe-1">
                         {{ user.name }}
                     </strong>
                 </a>
@@ -121,7 +121,7 @@
                             class="dropdown-item"
                             :href="route('homepage')"
                         >
-                            <i class="fa fa-book me-2"></i>Мои проекти
+                            <i class="fa fa-book me-2"></i>Projects
                         </Link>
 
                         <Link
@@ -131,7 +131,7 @@
                             class="dropdown-item"
                             :href="route('logout')"
                         >
-                            <i class="fa fa-sign-out me-2"></i>Одјави се
+                            <i class="fa fa-sign-out me-2"></i>Log Out
                         </Link>
                     </li>
                 </ul>
@@ -156,15 +156,11 @@ const route = inject("route");
 
 const navLinks = [
     {
-        name: "Проекти",
+        name: "Home",
         href: "homepage",
     },
     {
-        name: "Контакт",
-        href: "homepage",
-    },
-    {
-        name: "За Нас",
+        name: "Contact",
         href: "homepage",
     },
 ];
