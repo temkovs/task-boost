@@ -2,3 +2,8 @@
 .ratio-4x6 {
     --bs-aspect-ratio: calc(6 / 4 * 100%);
 }
+
+.ratio-2048x1336 {
+    --bs-aspect-ratio: calc( 1336 / 2048 * 100%);
+}
+
