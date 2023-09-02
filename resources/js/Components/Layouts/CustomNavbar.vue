@@ -54,9 +54,8 @@
                     >
                         <a
                             :href="
-                                navLink.href
-                                    ? route(navLink.href)
-                                    : route('homepage') + navLink.to
+                                route(navLink.href) +
+                                (navLink.section ? navLink.section : '')
                             "
                             class="text-decoration-none text-white"
                         >
@@ -162,6 +161,7 @@ const navLinks = [
     {
         name: "Contact",
         href: "homepage",
+        section: "#contact"
     },
 ];
 </script>

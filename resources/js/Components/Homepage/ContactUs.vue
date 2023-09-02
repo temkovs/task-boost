@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-secondary custom-scroll-margin-top">
+    <section id="contact" class="bg-secondary custom-scroll-margin-top">
         <div
             class="container d-flex justify-content-center align-items-center py-5 text-dark"
         >
@@ -52,7 +52,7 @@
                     <div class="col-11 col-sm-9 col-md-6 col-lg-12">
                         <div class="ratio ratio-2048x1336">
                             <img
-                                src="/images/homepage/contact-illustrator.jpeg"
+                                src="/images/homepage/contact-illustration.jpeg"
                                 alt="Office Work"
                                 class="object-fit-contain object-position-right"
                             />
