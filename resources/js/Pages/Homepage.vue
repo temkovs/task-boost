@@ -2,6 +2,7 @@
     <main>
         <hero-section />
         <contact-us />
+        <frequently-asked-questions />
     </main>
 </template>
 
@@ -14,8 +15,9 @@ export default {
 </script>
 
 <script setup>
-import HeroSection from "@/Components/Homepage/HeroSection.vue";
 import ContactUs from "@/Components/Homepage/ContactUs.vue";
+import HeroSection from "@/Components/Homepage/HeroSection.vue";
+import FrequentlyAskedQuestions from "@/Components/Homepage/FrequentlyAskedQuestions.vue";
 </script>
 
 <style scoped>
