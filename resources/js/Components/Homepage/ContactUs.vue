@@ -10,7 +10,7 @@
                     class="order-1 order-lg-0 col-12 col-md-12 col-lg-7 col-xl-6 px-0 d-flex flex-column"
                 >
                     <div
-                        class="fs-4 mb-3"
+                        class="fs-3 mb-3 fw-bold"
                     > Do you need additional guidance?
                     </div>
                     <div class="mb-3 mb-sm-5">
