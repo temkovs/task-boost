@@ -1,6 +1,7 @@
 <template>
     <main>
         <hero-section />
+        <our-success-formula />
         <contact-us />
         <frequently-asked-questions />
     </main>
@@ -17,6 +18,7 @@ export default {
 <script setup>
 import ContactUs from "@/Components/Homepage/ContactUs.vue";
 import HeroSection from "@/Components/Homepage/HeroSection.vue";
+import OurSuccessFormula from "@/Components/Homepage/OurSuccessFormula.vue";
 import FrequentlyAskedQuestions from "@/Components/Homepage/FrequentlyAskedQuestions.vue";
 </script>
 

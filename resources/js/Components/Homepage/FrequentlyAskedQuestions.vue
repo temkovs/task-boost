@@ -1,16 +1,16 @@
 <template>
-    <section v-if="questions.length > 0" class="bg-secondary">
+    <section v-if="questions.length > 0" class="bg-light">
         <div class="container d-flex flex-column align-items-center py-5">
-            <div class="fs-4 text-dark text-center mb-5">Frequently Asked Questions</div>
-            <div id="faq" class="col-12 col-xxl-11 accordion accordion-flush">
+            <div class="fs-3 fw-bold text-center mb-5">Frequently Asked Questions</div>
+            <div id="faq" class="col-12 col-xxl-11 accordion accordion-flush mb-5">
                 <div
                     v-for="(item, i) in questions"
                     :key="i"
-                    class="accordion-item rounded-3 mb-2 border border-0 bg-light"
+                    class="accordion-item rounded-3 mb-2 border border-0 bg-secondary"
                 >
                     <div :id="'heading' + i" class="accordion-header">
                         <button
-                            class="accordion-button rounded-3 shadow-none collapsed border border-0"
+                            class="accordion-button rounded-3 shadow-none bg-secondary collapsed border border-0"
                             type="button"
                             data-bs-toggle="collapse"
                             :data-bs-target="'#collapse' + i"
@@ -22,7 +22,7 @@
                     </div>
                     <div
                         :id="'collapse' + i"
-                        class="accordion-collapse collapse pt-4 bg-light"
+                        class="accordion-collapse collapse pt-4 bg-secondary"
                         :aria-labelledby="'heading' + i"
                         data-bs-parent="#faq"
                     >
