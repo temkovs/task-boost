@@ -118,7 +118,7 @@
                             as="button"
                             type="button"
                             class="dropdown-item"
-                            :href="route('homepage')"
+                            :href="route('projects.index')"
                         >
                             <i class="fa fa-book me-2"></i>Projects
                         </Link>
@@ -146,7 +146,7 @@ export default {
 </script>
 
 <script setup>
-import {inject, onMounted} from "vue";
+import {inject} from "vue";
 import { useBase } from "@/Mixins/useBase.js";
 
 const {user} = useBase();

@@ -27,7 +27,7 @@
                             <div class="small opacity-75 mb-2 mb-sm-3 mt-4 mt-sm-0">{{ contact.title }}</div>
                             <div class="d-flex align-items-center">
                                 <i
-                                    class="me-2 fa text-primary fa-2x"
+                                    class="me-2 fa text-primary fs-4"
                                     :class="contact.icon"
                                 />
                                 <a

@@ -1,6 +1,6 @@
 <template>
     <footer id="footer" class="border-top bg-black">
-        <div class="container py-3 py-md-4 text-light">
+        <div class="container py-4 py-md-4 text-light">
             <div class="row d-flex justify-content-between align-items-center">
                 <div class="col-12 col-md-6 col-lg-8 col-xxl-9 text-center text-md-start">
                     <Link :href="route('homepage')">

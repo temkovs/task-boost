@@ -6,4 +6,17 @@
 .ratio-2048x1336 {
     --bs-aspect-ratio: calc( 1336 / 2048 * 100%);
 }
+.ratio-6123x4082 {
+    --bs-aspect-ratio: calc( 4082 / 6123 * 100%);
+}
+
+//widths
+.max-width-1600px{
+    max-width: 1600px;
+}
+
+//cursor
+.cursor-pointer{
+    cursor: pointer;
+}
 

@@ -33,9 +33,17 @@
                         <br class="d-none d-lg-flex"/>
                         and seamless note-taking.
                     </div>
+                    <Link
+                        v-if="user"
+                        :href="route('projects.index')"
+                        class="btn btn-primary text-white rounded-3 px-3 py-2 fs-5"
+                    >
+                        Create Project
+                    </Link>
                     <button
+                        v-else
+                        data-bs-target="#signInModal"
                         data-bs-toggle="modal"
-                        data-bs-target="#appointmentModal"
                         class="btn btn-primary text-white rounded-3 px-3 py-2 fs-5"
                     >
                         Create Project
@@ -65,7 +73,13 @@ export default {
 };
 </script>
 
-<script setup></script>
+<script setup>
+import {inject} from "vue";
+import {useBase} from "@/Mixins/useBase.js";
+
+const {user} = useBase();
+const route = inject("route");
+</script>
 
 <style scoped>
 @media (min-width: 992px) {

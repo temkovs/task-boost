@@ -2,7 +2,7 @@
     <section v-if="questions.length > 0" class="bg-light">
         <div class="container d-flex flex-column align-items-center py-5">
             <div class="fs-3 fw-bold text-center mb-5">Frequently Asked Questions</div>
-            <div id="faq" class="col-12 col-xxl-11 accordion accordion-flush mb-5">
+            <div id="faq" class="col-12 col-xxl-11 accordion accordion-flush mb-lg-3">
                 <div
                     v-for="(item, i) in questions"
                     :key="i"

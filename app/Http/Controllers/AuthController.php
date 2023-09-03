@@ -27,7 +27,7 @@ class AuthController extends Controller
         if (Auth::attempt($request->validated())) {
             $request->session()->regenerate();
 
-            return redirect()->intended(route('homepage'));
+            return redirect()->intended(route('projects.index'));
         }
 
         return back()->withErrors([

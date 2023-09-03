@@ -2,6 +2,8 @@
 
 namespace App\Enums;
 
+use Illuminate\Http\JsonResponse;
+
 enum Color: int
 {
     case YELLOW = 0;
