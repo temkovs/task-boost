@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectRequest;
+use App\Models\MindMap;
 use App\Models\Project;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -51,11 +53,6 @@ class ProjectsPageController extends Controller
         return Inertia::render('Project/ShowTasks', compact('project'));
     }
 
-    public function showMindMap(Project $project): Response
-    {
-        return Inertia::render('Project/ShowMindMap', compact('project'));
-    }
-
     public function showNotes(Project $project): Response
     {
         return Inertia::render('Project/ShowNotes', compact('project'));
@@ -69,5 +66,22 @@ class ProjectsPageController extends Controller
     public function showMaterials(Project $project): Response
     {
         return Inertia::render('Project/ShowMaterials', compact('project'));
+    }
+
+    public function showMindMap(Project $project): Response
+    {
+        $project->loadMissing('mindMap');
+        return Inertia::render('Project/ShowMindMap', compact('project'));
+    }
+
+    public function storeMindMap(Project $project, Request $request): RedirectResponse
+    {
+        $mindMapData = $project->mindMap()->firstOrNew([]);
+        $mindMapData->mind_map = $request->input('mind_map');
+        if (!$mindMapData->exists) {
+            $mindMapData->project()->associate($project);
+        }
+        $mindMapData->save();
+        return back()->with('success');
     }
 }

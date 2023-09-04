@@ -11,15 +11,10 @@ class MindMap extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['mind_map'];
 
-    public function parent(): BelongsTo
+    public function project(): BelongsTo
     {
-        return $this->belongsTo(MindMap::class, 'parent_id', 'id');
-    }
-
-    public function children(): HasMany
-    {
-        return $this->hasMany(MindMap::class, 'parent_id', 'id');
+        return $this->belongsTo(Project::class);
     }
 }

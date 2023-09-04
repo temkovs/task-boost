@@ -5,7 +5,7 @@
                 <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 "
                      :style="'background-color : ' + project.color_hash">
                     <div
-                        class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-4 text-white min-vh-100">
+                        class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-4 text-white min-vh-90">
                         <a href="/"
                            class="d-flex align-items-center mb-md-0 me-md-auto text-light text-decoration-none">
                             <span class="fs-5 d-none d-sm-inline text-uppercase mx-auto">{{ project.title }}</span>
@@ -96,5 +96,8 @@ const styleObject = (colorHover) => {
 .item:hover {
     background-color: #ededed;
     color: var(--bs-nav-link-color) !important; /* Use the computed property */
+}
+.min-vh-90 {
+    min-height: 90vh !important;
 }
 </style>

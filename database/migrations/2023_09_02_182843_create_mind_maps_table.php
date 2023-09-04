@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('mind_maps', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->unsignedBigInteger('parent_id')->nullable();
+            $table->string('mind_map')->nullable();
+            $table->foreignId('project_id')->constrained();
             $table->timestamps();
         });
     }
