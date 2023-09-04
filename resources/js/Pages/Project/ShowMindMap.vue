@@ -52,7 +52,7 @@ const props = defineProps({
 })
 
 const form = useForm({
-    mind_map: props.project.mind_map!==undefined ? JSON.parse(props.project.mind_map.mind_map): [{
+    mind_map: props.project.mind_map ? JSON.parse(props.project.mind_map.mind_map): [{
         "name": "First Node",
         "children": [
             {
