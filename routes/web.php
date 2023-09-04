@@ -26,4 +26,12 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::resource('projects', ProjectsPageController::class);
+    Route::prefix('projects/{project}')->name('project.')->group(function () {
+        Route::get('/home', [ProjectsPageController::class, 'showHome'])->name('home');
+        Route::get('/mind-map', [ProjectsPageController::class, 'showMindMap'])->name('mind_map');
+        Route::get('/events', [ProjectsPageController::class, 'showEvents'])->name('events');
+        Route::get('/tasks', [ProjectsPageController::class, 'showTasks'])->name('tasks');
+        Route::get('/notes', [ProjectsPageController::class, 'showNotes'])->name('notes');
+        Route::get('/materials', [ProjectsPageController::class, 'showMaterials'])->name('materials');
+    });
 });

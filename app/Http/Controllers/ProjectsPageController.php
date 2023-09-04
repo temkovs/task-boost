@@ -14,7 +14,7 @@ class ProjectsPageController extends Controller
     {
         $user = auth()->user();
         $projects = $user->projects;
-        return Inertia::render('Projects', compact('projects'));
+        return Inertia::render('Project/Index', compact('projects'));
     }
 
     public function store(ProjectRequest $request): RedirectResponse
@@ -39,5 +39,35 @@ class ProjectsPageController extends Controller
         $project->delete();
 
         return back()->with('success', 'Project Deleted with Success!');
+    }
+
+    public function showHome(Project $project): Response
+    {
+        return Inertia::render('Project/ShowHome', compact('project'));
+    }
+
+    public function showTasks(Project $project): Response
+    {
+        return Inertia::render('Project/ShowTasks', compact('project'));
+    }
+
+    public function showMindMap(Project $project): Response
+    {
+        return Inertia::render('Project/ShowMindMap', compact('project'));
+    }
+
+    public function showNotes(Project $project): Response
+    {
+        return Inertia::render('Project/ShowNotes', compact('project'));
+    }
+
+    public function showEvents(Project $project): Response
+    {
+        return Inertia::render('Project/ShowEvents', compact('project'));
+    }
+
+    public function showMaterials(Project $project): Response
+    {
+        return Inertia::render('Project/ShowMaterials', compact('project'));
     }
 }

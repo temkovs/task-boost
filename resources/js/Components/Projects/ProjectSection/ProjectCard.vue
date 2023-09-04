@@ -21,7 +21,10 @@
                            data-bs-title="Project"
                            :data-bs-route="route('projects.destroy', project)">
                         </i>
-                        <i class="fa fa-eye ms-4"></i>
+                        <Link :style="'color : ' + (project.color_hash ?? '#fd6528')"
+                              :href="route('project.home',project)">
+                            <i class="fa fa-eye ms-4"></i>
+                        </link>
                     </div>
                 </div>
             </div>
@@ -42,8 +45,8 @@ const route = inject("route");
 
 defineProps({
     project: {
-        type: Array,
-        default: [],
+        type: Object,
+        default: null,
     }
 })
 </script>

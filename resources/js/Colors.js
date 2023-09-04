@@ -1,47 +1,23 @@
 export const colors = [
     {
-        label: "light green",
-        hash_code: "#92CD28",
-    },
-    {
-        label: "pastel green",
-        hash_code: "#B6EE56",
-    },
-    {
-        label: "light orange",
-        hash_code: "#ffc937",
-    },
-    {
-        label: "pastel orange",
-        hash_code: "#FFA33F",
+        label: "green",
+        hash_code: "#0D6E1C",
     },
     {
         label: "orange",
-        hash_code: "#ff6a2e",
+        hash_code: "#fd6528",
     },
     {
         label: "red",
-        hash_code: "#fd2e18",
-    },
-    {
-        label: "violet",
-        hash_code: "#bb03b1",
+        hash_code: "#B12C2F",
     },
     {
         label: "blue",
-        hash_code: "#011fb4",
-    },
-    {
-        label: "light blue",
-        hash_code: "#1f6eff",
+        hash_code: "#136095",
     },
     {
         label: "light gray",
-        hash_code: "#8a8989",
-    },
-    {
-        label: "gray",
-        hash_code: "#363636",
+        hash_code: "#4F575E",
     },
     {
         label: "black",
