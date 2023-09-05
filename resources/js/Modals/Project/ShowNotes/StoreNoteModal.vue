@@ -9,6 +9,7 @@
         >
             <template #default>
                 <QuillEditor
+                    style="min-height: 200px"
                     ref="myQuillEditor"
                     theme="snow"
                     toolbar="minimal"
