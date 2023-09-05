@@ -1,7 +1,7 @@
 <template>
     <main class="bg-secondary">
         <project-layout :project="project" location="Home">
-            {{ project }}
+            Home
         </project-layout>
     </main>
 </template>
