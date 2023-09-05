@@ -10,7 +10,7 @@ class Note extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'text'];
+    protected $fillable = ['note'];
 
     public function project(): BelongsTo
     {

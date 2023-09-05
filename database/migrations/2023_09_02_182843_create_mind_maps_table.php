@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('mind_maps', function (Blueprint $table) {
             $table->id();
             $table->longText('mind_map')->nullable();
-            $table->foreignId('project_id')->constrained();
+            $table->foreignId('project_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

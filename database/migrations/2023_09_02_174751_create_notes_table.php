@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->text('text');
-            $table->foreignId('project_id')->constrained();
+            $table->longText('note');
+            $table->foreignId('project_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

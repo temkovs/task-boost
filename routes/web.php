@@ -1,8 +1,13 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\MindMapController;
+use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ProjectsPageController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,12 +32,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::resource('projects', ProjectsPageController::class);
     Route::prefix('projects/{project}')->name('project.')->group(function () {
-        Route::get('/home', [ProjectsPageController::class, 'showHome'])->name('home');
-        Route::get('/mind-map', [ProjectsPageController::class, 'showMindMap'])->name('mind_map');
-        Route::post('/mind-map/store', [ProjectsPageController::class, 'storeMindMap'])->name('mind_map.store');
-        Route::get('/events', [ProjectsPageController::class, 'showEvents'])->name('events');
-        Route::get('/tasks', [ProjectsPageController::class, 'showTasks'])->name('tasks');
-        Route::get('/notes', [ProjectsPageController::class, 'showNotes'])->name('notes');
-        Route::get('/materials', [ProjectsPageController::class, 'showMaterials'])->name('materials');
+        Route::resource('/mind-map', MindMapController::class)->except('edit','create');
+        Route::resource('/materials', MaterialController::class)->except('edit','create');
+        Route::resource('/events', EventController::class)->except('edit','create');
+        Route::resource('/notes', NoteController::class)->except('edit','create');
+        Route::resource('/tasks', TaskController::class)->except('edit','create');
     });
 });

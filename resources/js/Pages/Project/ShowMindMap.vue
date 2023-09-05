@@ -53,7 +53,7 @@ const props = defineProps({
 
 const form = useForm({
     mind_map: props.project.mind_map ? JSON.parse(props.project.mind_map.mind_map): [{
-        "name": "First Node",
+        "name": props.project.title,
         "children": [
             {
                 "name": "First Child Note",
@@ -73,7 +73,7 @@ const form = useForm({
 })
 const onChange = (data) => {
     form.mind_map = JSON.stringify(data);
-    form.post(route("project.mind_map.store", props.project));
+    form.post(route("project.mind-map.store", props.project));
 };
 </script>
 

@@ -8,7 +8,7 @@
                             project.title
                         }}</h4>
                     <p class="mb-0 truncate-lines-2" style="min-height: 48px">{{ project.description }}</p>
-                    <div class="mt-3 d-flex justify-content-evenly fs-4"
+                    <div class="mt-3 d-flex justify-content-evenly align-items-center fs-4"
                          :style="'color : ' + (project.color_hash ?? '#fd6528')">
                         <i class="fa fa-pencil cursor-pointer"
                            :data-bs-project="JSON.stringify(project)"
@@ -22,7 +22,7 @@
                            :data-bs-route="route('projects.destroy', project)">
                         </i>
                         <Link :style="'color : ' + (project.color_hash ?? '#fd6528')"
-                              :href="route('project.home',project)">
+                              :href="route('project.mind-map.index',project)">
                             <i class="fa fa-eye ms-4"></i>
                         </link>
                     </div>
