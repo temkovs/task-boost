@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->string('color_hash')->default("#FFFFFF")->nullable();
+            $table->string('color_hash')->default("#0D6E1C")->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');;
             $table->timestamps();
         });

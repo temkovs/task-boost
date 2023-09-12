@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div class="container-fluid">
+    <div class="max-width-1600px mx-auto">
+        <div class="container-fluid overflow-hidden">
             <div class="row flex-nowrap">
                 <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 "
                      :style="'background-color : ' + project.color_hash">

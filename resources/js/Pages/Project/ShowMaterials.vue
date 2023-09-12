@@ -1,5 +1,5 @@
 <template>
-    <main class="bg-secondary max-width-1600px mx-auto">
+    <main>
         <project-layout :project="project" location="Images">
             <div class="row d-flex justify-content-between align-items-center mb-5">
                 <h2 class="fw-bold mb-2 col">IMAGES</h2>

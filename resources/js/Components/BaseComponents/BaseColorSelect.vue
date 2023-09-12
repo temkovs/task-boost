@@ -1,11 +1,15 @@
 <template>
     <div>
-        <p class="fs-12-px mb-1">Choose your project's color</p>
+        <p class="fs-12-px mb-1">
+            {{ isEventColor ? "Choose your event's color" : "Choose your project's color" }}
+        </p>
         <select v-model="_value" :style="_value? 'background-color : ' + _value:''"
                 class="w-100 rounded-3 py-2 ps-3">
             <option :value="null" class="pt-1"></option>
-            <option v-for="(color, key) in colors" :key="key" :value="color.hash_code"
-                    :style="{ backgroundColor: color.hash_code }">
+            <option v-for="(color, key) in (isEventColor ? eventsColors : projectColors)"
+                    :key="key" :value="color.hash_code"
+                    :style="{ backgroundColor: color.hash_code }"
+            >
             </option>
         </select>
     </div>
@@ -18,7 +22,7 @@ export default {
 </script>
 <script setup>
 import {computed, ref} from "vue";
-import {colors} from '/resources/js/Colors.js';
+import {projectColors, eventsColors} from '/resources/js/Colors.js';
 
 const props = defineProps({
     name: {
@@ -49,6 +53,10 @@ const props = defineProps({
         type: String,
         default: null,
     },
+    isEventColor: {
+        type: Boolean,
+        default: false,
+    }
 });
 const emit = defineEmits(["update:value", "keyup", "onEnter"]);
 const _value = computed({

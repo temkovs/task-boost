@@ -1,6 +1,6 @@
 <template>
     <div>
-        <label v-if="label" :for="name">{{ label }}</label>
+        <label v-if="label" :for="name" class="mb-1">{{ label }}</label>
         <textarea
             :id="name"
             v-model="_value"
