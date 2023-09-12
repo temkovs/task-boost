@@ -78,7 +78,7 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route("login"), {
+    form.post(route("process_login"), {
         onSuccess: () => {
             modal.value.hide();
             form.reset();

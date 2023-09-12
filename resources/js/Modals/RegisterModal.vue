@@ -106,7 +106,7 @@ const modal = ref(null);
 
 
 const submit = () => {
-    form.post(route("register"), {
+    form.post(route("process_register"), {
         onSuccess: () => {
             modal.value.hide();
             form.reset();

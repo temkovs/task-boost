@@ -21,11 +21,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomepageController::class, 'homepage'])->name('homepage');
+Route::get('/', HomepageController::class)->name('homepage');
 
 Route::middleware('guest')->group(function () {
-    Route::post('/register', [AuthController::class, 'register'])->name('register');
-    Route::post('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/login', [AuthController::class, 'login'])->name('process_login');
+    Route::get('/login', [HomepageController::class, 'login'])->name('login');
+    Route::post('/register', [AuthController::class, 'register'])->name('process_register');
+    Route::get('/register', [HomepageController::class, 'register'])->name('register');
 });
 
 Route::middleware('auth')->group(function () {
