@@ -1,10 +1,12 @@
 <template>
-    <custom-navbar />
-    <slot></slot>
-    <register-modal />
-    <sign-in-modal />
-    <custom-footer />
-    <delete-modal/>
+    <div class="bg-secondary">
+        <custom-navbar />
+        <slot></slot>
+        <register-modal />
+        <sign-in-modal />
+        <custom-footer />
+        <delete-modal/>
+    </div>
 </template>
 
 <script setup>

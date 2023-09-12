@@ -106,9 +106,9 @@ const navItems = ref([
         icon: "fa-sticky-note"
     },
     {
-        name: "Materials",
+        name: "Images",
         link: "project.materials.index",
-        icon: "fa-book"
+        icon: "fa-file-image-o"
     },
     {
         name: "Events",

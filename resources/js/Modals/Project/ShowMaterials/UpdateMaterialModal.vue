@@ -1,21 +1,25 @@
 <template>
     <div>
         <base-modal
-            id="storeNoteModal"
+            id="updateMaterialModal"
             :close-button="false"
-            title="Add Note"
+            title="Edit Image"
             @submit="submit"
+            @onshow="onShow"
             @instance="(_) => (modal = _)"
         >
             <template #default>
-                <QuillEditor
-                    style="min-height: 200px"
-                    ref="myQuillEditor"
-                    theme="snow"
-                    toolbar="minimal"
-                    :read-only="false"
-                    @update:content="handleContentUpdate"
-                />
+                <div>
+                    <base-input
+                        v-model:value="form.file_name"
+                        class="position-relative"
+                        name="file_name"
+                        placeholder="File Name"
+                        label=""
+                        type="text"
+                        :invalid="form.errors.file_name"
+                    />
+                </div>
             </template>
             <template #footer>
                 <div class="d-flex flex-column w-100">
@@ -25,7 +29,7 @@
                             class="w-100 btn btn-primary text-white px-4 text-white"
                             :disabled="form.processing"
                         >
-                            Add Note
+                            Edit Image
                         </button>
                     </div>
                 </div>
@@ -36,7 +40,7 @@
 
 <script>
 export default {
-    name: "StoreNoteModal",
+    name: "UpdateMaterialModal",
 };
 </script>
 
@@ -44,12 +48,9 @@ export default {
 import {inject, ref} from "vue";
 import BaseModal from "../../BaseModal.vue";
 import {useForm} from "@inertiajs/vue3";
-import { QuillEditor } from '@vueup/vue-quill'
-import { Quill } from "@vueup/vue-quill";
-import '@vueup/vue-quill/dist/vue-quill.snow.css';
+import BaseInput from "@/Components/BaseComponents/BaseInput.vue";
 const route = inject("route");
 const modal = ref(null);
-
 
 const props = defineProps({
     project: {
@@ -57,27 +58,21 @@ const props = defineProps({
         default: null,
     },
 })
-
 const form = useForm({
-    note: "",
+    path: "",
+    file_name: "",
 })
 
+const material = ref(null);
 
-
-const handleContentUpdate = (delta) => {
-    form.note = delta;
-};
-
-const getHTMLFromDelta = () => {
-    if (!form.note) return "";
-    const tempQuill = new Quill(document.createElement('div'));
-    tempQuill.setContents(form.note);
-    return tempQuill.root.innerHTML;
+const onShow = (event) => {
+    material.value = JSON.parse(event.relatedTarget.getAttribute("data-bs-material"));
+    form.path = material.value.path;
+    form.file_name = material.value.file_name;
 };
 
 const submit = () => {
-    form.note = getHTMLFromDelta()
-    form.post(route("project.notes.store", props.project), {
+    form.put(route("project.materials.update", [props.project, material.value]), {
         onSuccess: () => {
             modal.value.hide();
             form.reset();
