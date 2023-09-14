@@ -21,7 +21,7 @@ class EventRequest extends FormRequest
             'start_date' => ['required', 'date_format:Y-m-d'],
             'end_date' => ['required', 'date_format:Y-m-d', 'after_or_equal:start_date'],
             'start_time' => ['nullable', 'date_format:H:i'],
-            'end_time' => ['nullable', 'date_format:H:i'],
+            'end_time' => ['nullable', 'date_format:H:i', 'after:start_time'],
             'attendees' => ['nullable', 'max:255'],
             'color' => ['nullable'],
             'location' => ['nullable', 'max:255'],

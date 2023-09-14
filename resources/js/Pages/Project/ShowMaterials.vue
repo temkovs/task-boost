@@ -16,7 +16,7 @@
                     </button>
                 </div>
             </div>
-            <div class="row d-flex align-items-stretch justify-content-center">
+            <div class="row d-flex align-items-stretch">
                 <div v-for="(material, i) in project.materials"
                      :key="i"
                      class="col-11 col-sm-9 col-md-6 col-lg-4 col-xl-3 mb-4">

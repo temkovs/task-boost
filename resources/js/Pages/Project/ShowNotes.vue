@@ -18,24 +18,7 @@
             </div>
             <div class="mt-2 mt-lg row g-3">
                 <div v-for="(note,i) in project.notes" :key="i" class="col-12 col-xl-6  align-content-stretch">
-                    <div class="card px-2 p-5 p-sm-5 h-100 position-relative overflow-hidden">
-                        <div class="d-flex align-items-center position-absolute top-0 end-0 p-2 text-light ">
-                            <i class="fa fa-pencil cursor-pointer p-2 rounded"
-                               :style="'background-color: ' + project.color_hash "
-                               :data-bs-note="JSON.stringify(note)"
-                               data-bs-target="#updateNoteModal"
-                               data-bs-toggle="modal">
-                            </i>
-                            <i class="fa fa-trash ms-2 cursor-pointer p-2 text-light rounded"
-                               :style="'background-color: ' + project.color_hash "
-                               data-bs-toggle="modal"
-                               data-bs-target="#deleteModal"
-                               data-bs-title="Note"
-                               :data-bs-route="route('project.notes.destroy',[project,note])">
-                            </i>
-                        </div>
-                        <div v-html="DOMPurify.sanitize(note.note)"></div>
-                    </div>
+                    <note-card :project="project" :note="note" />
                 </div>
             </div>
         </project-layout>
@@ -57,11 +40,9 @@ export default {
 import ProjectLayout from "@/Layouts/ProjectLayout.vue";
 import StoreNoteModal from "@/Modals/Project/ShowNotes/StoreNoteModal.vue";
 import UpdateNoteModal from "@/Modals/Project/ShowNotes/UpdateNoteModal.vue";
-import {inject} from "vue";
-import DOMPurify from "dompurify";
 import { Head } from '@inertiajs/vue3';
+import NoteCard from "@/Components/Project/ShowNotes/NoteCard.vue";
 
-const route = inject("route");
 defineProps({
     project: {
         type: Object,

@@ -6,7 +6,7 @@
         <project-layout :project="project" location="Tasks">
             <div class="row d-flex justify-content-between align-items-center mb-5">
                 <h2 class="fw-bold mb-2 col">TASKS</h2>
-                <div class="col text-end">
+                <div class="col text-sm-end">
                     <button
                         data-bs-target="#storeTaskModal"
                         data-bs-toggle="modal"
