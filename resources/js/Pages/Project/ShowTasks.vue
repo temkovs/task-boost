@@ -24,7 +24,7 @@
                      :class="{ 'mb-4 mb-lg-0' : i !== 2 }"
                 >
                     <div class="overflow-auto rounded p-4 custom-scroll custom-max-height"
-                         :style="'background-color : ' + project.color_hash"
+                         :style="'background-color : ' + (project.color_hash ?? '#fd6528')"
                     >
                         <vue-draggable :project="project"
                                        :tasks="taskArrays[key].tasks"

@@ -21,6 +21,7 @@
                         class="mb-3"
                         label=""
                         @change="(file) => (form.file = file) + previewFile(file)"
+                        :error="form.errors.file"
                     />
                 </div>
                 <base-input
