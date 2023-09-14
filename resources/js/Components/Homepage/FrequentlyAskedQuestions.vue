@@ -48,24 +48,21 @@ export default {
 <script setup>
 const questions = [
     {
-        title: "Дали курсевите се достапни офлајн?",
-        description: `Тоа зависи од самиот курс. Некои од курсевите имаат можност за преземање на материјалите,
-         додека другите побаруваат интернет конекција за нивен пристап.`,
+        title: "Can I change the color of my project later on, and what is its purpose?",
+        description: `Yes, you can change the color of your project at any time. Simply navigate to your project settings and select a new color. The project color feature was introduced to offer a sense of personalization, making your project more appealing and tailored to your preferences. If you don't choose a color when creating the project, it will default to the app's primary color, which is orange.`,
     },
     {
-        title: "Дали постојат попусти за курсевите?",
-        description: `Ние нудиме различни попусти и промоции на курсевите во тек на годината.
-         Претплатете се или запратете нѐ на некоја од понудените социјални мрежи за секогаш да бидете во тек.`,
+        title: "How can I delete a node on the mind map?",
+        description: `To delete a node, simply right-click on the node of interest. A context menu will appear, offering various options. Select the "delete" option from this menu to remove the node.`,
     },
     {
-        title: "Како можам да го контактирам инструкторот на даден курс?",
-        description: `Секој инструктор може да се контактира преку понудените информации за контакт на
-         основната страна на курсот.`,
+        title: "How can I add images to my notes?",
+        description: `Within the note's text editor, there are options to add image with pasting an image that you have copied.`,
     },
     {
-        title: "Дали видеата од курсот се достапни и по прегледувањето на истите?",
+        title: "If I delete a project, will all the data inside it be deleted as well?",
         description:
-            "Да, видеата и целиот материјал содржан во курсот ви остануваат достапни неограничено.",
+            "Yes, when you attempt to delete a project, the system will first display a modal asking if you're sure about the deletion. If you confirm by clicking \"yes\", the project along with all its contents will be permanently deleted.",
     },
 ];
 </script>
