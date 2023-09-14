@@ -10,7 +10,7 @@
         @updated-period="handleUpdatedPeriod"
         @updated-mode="handleUpdatedMode"
         class="custom-width"
-        :class="{ 'custom-height' : !modeValue || modeValue === 'month' }"
+        :class="{ 'custom-min-height' : !modeValue || modeValue === 'month' }"
     >
         <template #customCurrentTime>
             <div
@@ -46,7 +46,7 @@ export default {
 import {Qalendar} from "qalendar";
 import "qalendar/dist/style.css";
 import {router, useForm} from "@inertiajs/vue3";
-import {onBeforeMount, ref, watch} from "vue";
+import {onBeforeMount, onUpdated, ref, watch} from "vue";
 import {eventsColors} from "@/Colors.js";
 import {Modal} from "bootstrap";
 
@@ -74,6 +74,10 @@ const config = {
 };
 
 const modeValue = ref(props.mode);
+
+onUpdated(() => {
+    modeValue.value = props.mode;
+});
 
 const form = useForm({
     title: "",
@@ -254,8 +258,8 @@ const formatDate = (date) => {
 
 <style scoped>
 @media (min-width: 992px) {
-    .custom-height {
-        height: 67vh;
+    .custom-min-height {
+        min-height: 67vh;
     }
 }
 
