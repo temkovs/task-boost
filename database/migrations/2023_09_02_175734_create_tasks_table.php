@@ -20,6 +20,8 @@ return new class extends Migration
             $table->date('due_date')->nullable();
             $table->unsignedTinyInteger('status')->default(StatusType::TO_DO->value);
             $table->unsignedTinyInteger('priority')->default(PriorityType::LOW->value);
+            $table->foreignId('project_id')->constrained()->onDelete('cascade');
+            $table->unsignedInteger('order');
             $table->timestamps();
         });
     }

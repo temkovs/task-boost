@@ -29,6 +29,7 @@
         "qalendar": "^3.5.0",
         "quill": "^1.3.7",
         "sass": "^1.63.6",
-        "vue3-mindmap": "^0.5.12"
+        "vue3-mindmap": "^0.5.12",
+        "vuedraggable": "^4.1.0"
     }
 }

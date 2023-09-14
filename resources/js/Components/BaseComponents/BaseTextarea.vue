@@ -9,6 +9,7 @@
             class="form-control rounded-3 custom-min-height p-3"
             @keyup="emit('keyup')"
             @keydown.enter="emit('onEnter')"
+            :readonly="readOnly"
         ></textarea>
         <div class="invalid-feedback">
             {{ invalid }}
@@ -46,6 +47,14 @@ const props = defineProps({
         type: String,
         default: "",
     },
+    disabled: {
+        type: Boolean,
+        default: false,
+    },
+    readOnly:{
+        type: Boolean,
+        default: false,
+    }
 });
 
 const emit = defineEmits(["update:value", "keyup", "onEnter"]);

@@ -39,5 +39,6 @@ Route::middleware('auth')->group(function () {
         Route::resource('/events', EventController::class)->except('edit','create');
         Route::resource('/notes', NoteController::class)->except('edit','create');
         Route::resource('/tasks', TaskController::class)->except('edit','create');
+        Route::put('/tasks/{task}/move', [TaskController::class, 'move'])->name('tasks.move');
     });
 });

@@ -1,5 +1,5 @@
 <template>
-    <div class="max-width-1600px mx-auto">
+    <div>
         <div class="container-fluid overflow-hidden">
             <div class="row flex-nowrap">
                 <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 "
@@ -60,7 +60,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col p-4 px-sm-4 px-md-5">
+                <div class="col p-4 px-sm-4 px-md-5 max-width-1600px mx-auto">
                     <slot></slot>
                 </div>
             </div>

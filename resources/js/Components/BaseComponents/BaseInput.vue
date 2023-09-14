@@ -23,6 +23,7 @@
                 :max="max !== null ? max : undefined"
                 @keyup="emit('keyup')"
                 @keydown.enter="emit('onEnter')"
+                :readonly="readOnly"
             />
             <toggle-password-icon
                 v-if="type === 'password' && _value !== ''"
@@ -91,6 +92,10 @@ const props = defineProps({
         type: String,
         default: "bg-white",
     },
+    readOnly: {
+        type: Boolean,
+        default: false,
+    }
 });
 const emit = defineEmits(["update:value", "keyup", "onEnter"]);
 const _value = computed({
