@@ -19,6 +19,8 @@ class EventController extends Controller
      */
     public function index(Request $request, Project $project): Response
     {
+        $this->authorize('view', $project);
+
         $meta = [
             'title' => 'Events',
         ];
@@ -49,6 +51,8 @@ class EventController extends Controller
      */
     public function store(EventRequest $request, Project $project): RedirectResponse
     {
+        $this->authorize('manage', $project);
+
         Event::createEvent($request, $project);
 
         return back()->with('success');
@@ -59,6 +63,8 @@ class EventController extends Controller
      */
     public function update(Project $project, Event $event, EventRequest $request): RedirectResponse
     {
+        $this->authorize('manage', $project);
+
         DB::transaction(function () use ($event, $request, $project) {
             $event->project()->associate($project);
             $event->update($request->validated());
@@ -72,6 +78,8 @@ class EventController extends Controller
      */
     public function destroy(Project $project, Event $event): RedirectResponse
     {
+        $this->authorize('manage', $project);
+
         $event->delete();
 
         return back()->with('success');

@@ -44,6 +44,7 @@
                         <button
                             type="submit"
                             class="w-100 btn btn-primary text-white px-4 text-white"
+                            :disabled="form.processing"
                         >
                             Create Project
                         </button>

@@ -17,8 +17,13 @@ use Inertia\Response;
 
 class MaterialController extends Controller
 {
+    /**
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function index(Project $project): Response
     {
+        $this->authorize('view', $project);
+
         $meta = [
             'title' => 'Images',
         ];
@@ -37,8 +42,13 @@ class MaterialController extends Controller
         ];
     }
 
+    /**
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function store(Project $project, StoreMaterialRequest $request): RedirectResponse
     {
+        $this->authorize('manage', $project);
+
         $fileName = self::calculateFilename($request->file('file'), $project->title);
 
         Storage::put($fileName[0], file_get_contents($request->file('file')));
@@ -54,16 +64,26 @@ class MaterialController extends Controller
         return back()->with('success');
     }
 
+    /**
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function update(Project $project, Material $material, UpdateMaterialRequest $request): RedirectResponse
     {
+        $this->authorize('manage', $project);
+
         $material->fill($request->validated());
         $material->save();
 
         return back()->with('success');
     }
 
+    /**
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function destroy(Project $project, Material $material): RedirectResponse
     {
+        $this->authorize('manage', $project);
+
         $material->delete();
 
         return back()->with('success');

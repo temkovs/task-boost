@@ -13,8 +13,13 @@ use Inertia\Response;
 
 class TaskController extends Controller
 {
+    /**
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function index(Project $project): Response
     {
+        $this->authorize('view', $project);
+
         $meta = [
             'title' => 'Tasks',
         ];
@@ -24,8 +29,13 @@ class TaskController extends Controller
         return Inertia::render('Project/ShowTasks', compact('project', 'meta'));
     }
 
+    /**
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function store(TaskRequest $request, Project $project): RedirectResponse
     {
+        $this->authorize('manage', $project);
+
         $task = new Task($request->validated());
         $task->project()->associate($project);
         $task->save();
@@ -33,16 +43,26 @@ class TaskController extends Controller
         return back()->with('success');
     }
 
+    /**
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function update(Project $project, Task $task, TaskRequest $request): RedirectResponse
     {
+        $this->authorize('manage', $project);
+
         $task->fill($request->validated());
         $task->save();
 
         return back()->with('success');
     }
 
-    public function move(Request $request, Project $project, Task $task)
+    /**
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function move(Request $request, Project $project, Task $task): RedirectResponse
     {
+        $this->authorize('manage', $project);
+
         $oldIndex = $task->order;
         $newIndex = $request->newIndex;
         $destinationStatus = $request->destinationStatus;
@@ -137,8 +157,13 @@ class TaskController extends Controller
         }
     }
 
+    /**
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function destroy(Project $project, Task $task): RedirectResponse
     {
+        $this->authorize('manage', $project);
+
         $task->delete();
 
         return back()->with('success');

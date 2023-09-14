@@ -11,8 +11,13 @@ use Inertia\Response;
 
 class MindMapController extends Controller
 {
+    /**
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function index(Project $project): Response
     {
+        $this->authorize('view', $project);
+
         $meta = [
             'title' => 'MindMap',
         ];
@@ -21,8 +26,13 @@ class MindMapController extends Controller
         return Inertia::render('Project/ShowMindMap', compact('project', 'meta'));
     }
 
+    /**
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function store(Project $project, Request $request): RedirectResponse
     {
+        $this->authorize('manage', $project);
+
         $mindMapData = $project->mindMap()->firstOrNew([]);
         $mindMapData->mind_map = $request->input('mind_map');
         if (!$mindMapData->exists) {

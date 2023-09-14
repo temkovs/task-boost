@@ -35,16 +35,26 @@ class ProjectsPageController extends Controller
         return back()->with('success', 'Project Created with Success!');
     }
 
+    /**
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function update(Project $project, ProjectRequest $request): RedirectResponse
     {
+        $this->authorize('manage', $project);
+
         $project->fill($request->validated());
         $project->save();
 
         return back()->with('success', 'Project Updated with Success!');
     }
 
+    /**
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function destroy(Project $project): RedirectResponse
     {
+        $this->authorize('manage', $project);
+
         $project->delete();
 
         return redirect(route('projects.index'))->with('success', 'Project Deleted with Success!');
