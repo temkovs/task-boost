@@ -1,4 +1,7 @@
 <template>
+    <Head>
+        <title>{{ meta.title }}</title>
+    </Head>
     <main class="bg-secondary">
         <project-layout :project="project" location="Notes">
             <div class="row d-flex justify-content-between align-items-center">
@@ -56,6 +59,7 @@ import StoreNoteModal from "@/Modals/Project/ShowNotes/StoreNoteModal.vue";
 import UpdateNoteModal from "@/Modals/Project/ShowNotes/UpdateNoteModal.vue";
 import {inject} from "vue";
 import DOMPurify from "dompurify";
+import { Head } from '@inertiajs/vue3';
 
 const route = inject("route");
 defineProps({
@@ -63,6 +67,10 @@ defineProps({
         type: Object,
         default: null,
     },
+    meta: {
+        type: Object,
+        default: null,
+    }
 })
 </script>
 

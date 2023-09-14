@@ -16,8 +16,12 @@ class NoteController extends Controller
 {
     public function index(Project $project): Response
     {
+        $meta = [
+            'title' => 'Notes',
+        ];
+
         $project->loadMissing('notes');
-        return Inertia::render('Project/ShowNotes', compact('project'));
+        return Inertia::render('Project/ShowNotes', compact('project', 'meta'));
     }
 
     public function store(Project $project, NoteRequest $request): RedirectResponse

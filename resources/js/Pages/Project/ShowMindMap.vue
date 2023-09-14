@@ -1,4 +1,7 @@
 <template>
+    <Head>
+        <title>{{ meta.title }}</title>
+    </Head>
     <main class="bg-secondary">
         <project-layout :project="project" location="MindMap">
             <div class="h-100">
@@ -30,6 +33,7 @@
 import AppLayout from "../../Layouts/AppLayout.vue";
 import mindmap from "vue3-mindmap";
 import "vue3-mindmap/dist/style.css";
+import { Head } from '@inertiajs/vue3';
 
 export default {
     name: "ShowMindMap",
@@ -46,6 +50,10 @@ import {useForm} from "@inertiajs/vue3";
 
 const props = defineProps({
     project: {
+        type: Object,
+        default: null,
+    },
+    meta: {
         type: Object,
         default: null,
     },

@@ -1,4 +1,7 @@
 <template>
+    <Head>
+        <title>{{ meta.title }}</title>
+    </Head>
     <main class="bg-secondary">
         <project-layout :project="project" location="Tasks">
             <div class="row d-flex justify-content-between align-items-center mb-5">
@@ -55,11 +58,16 @@ import {computed, onUpdated, ref, watch} from "vue";
 import {DONE, IN_PROGRESS, TO_DO} from "@/TasksConstants.js";
 import UpdateTaskModal from "@/Modals/Project/ShowTasks/UpdateTaskModal.vue";
 import ViewTaskModal from "@/Modals/Project/ShowTasks/ViewTaskModal.vue";
+import { Head } from '@inertiajs/vue3';
 
 const props = defineProps({
     project: {
         type: Object,
         required: true,
+    },
+    meta: {
+        type: Object,
+        default: null,
     },
 })
 

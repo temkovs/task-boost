@@ -16,9 +16,14 @@ class ProjectsPageController extends Controller
 {
     public function index(): Response
     {
+        $meta = [
+            'title' => 'Projects',
+        ];
+
         $user = auth()->user();
         $projects = $user->projects;
-        return Inertia::render('Project/Index', compact('projects'));
+
+        return Inertia::render('Project/Index', compact('projects', 'meta'));
     }
 
     public function store(ProjectRequest $request): RedirectResponse

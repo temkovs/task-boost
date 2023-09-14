@@ -1,4 +1,7 @@
 <template>
+    <Head>
+        <title>{{ meta.title }}</title>
+    </Head>
     <main class="bg-secondary">
         <project-layout :project="project" location="Events">
             <div class="row d-flex justify-content-between align-items-center mb-5">
@@ -75,6 +78,7 @@ import UpdateEventModal from "@/Modals/Project/ShowEvents/UpdateEventModal.vue";
 import DeleteEventModal from "@/Modals/Project/ShowEvents/DeleteEventModal.vue";
 import {Modal} from "bootstrap";
 import {eventsColors} from "@/Colors.js";
+import { Head } from '@inertiajs/vue3';
 
 const props = defineProps({
     project: {
@@ -92,6 +96,10 @@ const props = defineProps({
     mode: {
         type: String,
         default: "week",
+    },
+    meta: {
+        type: Object,
+        default: null,
     },
 })
 

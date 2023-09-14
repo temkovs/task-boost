@@ -13,8 +13,12 @@ class MindMapController extends Controller
 {
     public function index(Project $project): Response
     {
+        $meta = [
+            'title' => 'MindMap',
+        ];
+
         $project->loadMissing('mindMap');
-        return Inertia::render('Project/ShowMindMap', compact('project'));
+        return Inertia::render('Project/ShowMindMap', compact('project', 'meta'));
     }
 
     public function store(Project $project, Request $request): RedirectResponse

@@ -19,8 +19,12 @@ class MaterialController extends Controller
 {
     public function index(Project $project): Response
     {
+        $meta = [
+            'title' => 'Images',
+        ];
+
         $project->loadMissing('materials');
-        return Inertia::render('Project/ShowMaterials', compact('project'));
+        return Inertia::render('Project/ShowMaterials', compact('project', 'meta'));
     }
 
     public static function calculateFilename($file, $folder, $alternative = true): array

@@ -1,4 +1,7 @@
 <template>
+    <Head>
+        <title>{{ meta.title }}</title>
+    </Head>
     <main>
         <project-layout :project="project" location="Images">
             <div class="row d-flex justify-content-between align-items-center mb-5">
@@ -42,12 +45,17 @@ import StoreMaterialModal from "@/Modals/Project/ShowMaterials/StoreMaterialModa
 import UpdateMaterialModal from "@/Modals/Project/ShowMaterials/UpdateMaterialModal.vue";
 import OpenImageModal from "@/Modals/Project/ShowMaterials/OpenImageModal.vue";
 import ImageCard from "@/Components/Project/ShowMaterials/ImageCard.vue";
+import { Head } from '@inertiajs/vue3';
 
 defineProps({
     project: {
         type: Object,
         default: null,
     },
+    meta: {
+        type: Object,
+        default: null,
+    }
 })
 </script>
 

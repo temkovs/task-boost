@@ -1,4 +1,7 @@
 <template>
+    <Head>
+        <title>{{ meta.title }}</title>
+    </Head>
     <main class="min-h bg-secondary">
         <projects-section :projects="projects" />
         <store-project-modal />
@@ -18,12 +21,17 @@ export default {
 import StoreProjectModal from "@/Modals/Project/StoreProjectModal.vue";
 import ProjectsSection from "@/Components/Projects/ProjectsSection.vue";
 import UpdateProjectModal from "@/Modals/Project/UpdateProjectModal.vue";
+import { Head } from '@inertiajs/vue3';
 
 defineProps({
     projects: {
         type: Array,
         default: [],
-    }
+    },
+    meta: {
+        type: Object,
+        default: null,
+    },
 })
 </script>
 

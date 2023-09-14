@@ -15,9 +15,13 @@ class TaskController extends Controller
 {
     public function index(Project $project): Response
     {
+        $meta = [
+            'title' => 'Tasks',
+        ];
+
         $project->loadMissing('tasks');
 
-        return Inertia::render('Project/ShowTasks', compact('project'));
+        return Inertia::render('Project/ShowTasks', compact('project', 'meta'));
     }
 
     public function store(TaskRequest $request, Project $project): RedirectResponse

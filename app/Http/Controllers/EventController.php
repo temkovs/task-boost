@@ -19,6 +19,10 @@ class EventController extends Controller
      */
     public function index(Request $request, Project $project): Response
     {
+        $meta = [
+            'title' => 'Events',
+        ];
+
         $mode = $request->get('mode', 'month');
         $start = $request->get('start', date('Y-m-d', strtotime('first day of this month')));
         $end = $request->get('end', date('Y-m-d', strtotime('last day of this month')));
@@ -37,7 +41,7 @@ class EventController extends Controller
             $selectedDate = date('Y-m-d', strtotime('+1 week', strtotime($start)));
         }
 
-        return Inertia::render('Project/ShowEvents', compact('project','events', 'selectedDate', 'mode'));
+        return Inertia::render('Project/ShowEvents', compact('project','events', 'selectedDate', 'mode', 'meta'));
     }
 
     /**
