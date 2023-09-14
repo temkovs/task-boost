@@ -72,8 +72,12 @@ class TaskController extends Controller
         }
 
         // Retrieve the tasks in the source and destination columns
-        $sourceTasks = Task::where('status', $task->status)->orderBy('order')->get();
-        $destinationTasks = Task::where('status', $destinationStatus)->orderBy('order')->get();
+        $sourceTasks = Task::where('status', $task->status)
+            ->where('project_id', $project->id)
+            ->orderBy('order')->get();
+        $destinationTasks = Task::where('status', $destinationStatus)
+            ->where('project_id', $project->id)
+            ->orderBy('order')->get();
 
         if ($destinationStatus == $task->status) {
             // Task moved within the same column

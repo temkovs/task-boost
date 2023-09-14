@@ -49,7 +49,7 @@ class MaterialController extends Controller
     {
         $this->authorize('manage', $project);
 
-        $fileName = self::calculateFilename($request->file('file'), $project->title);
+        $fileName = self::calculateFilename($request->file('file'), "{$project->user->id}/{$project->id}/{$project->title}");
 
         Storage::put($fileName[0], file_get_contents($request->file('file')));
 

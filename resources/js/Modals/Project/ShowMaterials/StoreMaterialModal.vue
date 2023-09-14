@@ -84,6 +84,12 @@ const submit = () => {
         onSuccess: () => {
             modal.value.hide();
             form.reset();
+            imageUrl.value = '';
+
+            const fileInput = document.getElementById('materialsUpload');
+            if (fileInput) {
+                fileInput.value = '';
+            }
         },
     });
 };

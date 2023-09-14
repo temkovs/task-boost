@@ -52,7 +52,9 @@ class Task extends Model
         });
 
         static::creating(function ($task) {
-            $maxOrder = static::where('status', $task->status)->max('order');
+            $maxOrder = static::where('status', $task->status)
+                ->where('project_id', $task->project->id)
+                ->max('order');
             $task->order = $maxOrder !== null ? $maxOrder + 1 : 0;
         });
     }
