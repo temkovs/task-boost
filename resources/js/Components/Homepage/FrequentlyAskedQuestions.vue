@@ -10,7 +10,7 @@
                 >
                     <div :id="'heading' + i" class="accordion-header">
                         <button
-                            class="accordion-button rounded-3 shadow-none bg-secondary collapsed border border-0"
+                            class="accordion-button rounded-3 shadow-none bg-secondary collapsed"
                             type="button"
                             data-bs-toggle="collapse"
                             :data-bs-target="'#collapse' + i"
@@ -22,17 +22,15 @@
                     </div>
                     <div
                         :id="'collapse' + i"
-                        class="accordion-collapse collapse pt-4 bg-secondary"
+                        class="accordion-collapse collapse  bg-secondary"
                         :aria-labelledby="'heading' + i"
                         data-bs-parent="#faq"
                     >
-                        <!-- eslint-disable vue/no-v-html -->
                         <div class="accordion-body pt-0">
                             <div class="col-12 col-lg-10 mb-2">
                                 {{ item.description }}
                             </div>
                         </div>
-                        <!--eslint-enable-->
                     </div>
                 </div>
             </div>
