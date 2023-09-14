@@ -3,7 +3,7 @@
         <div class="container-fluid overflow-hidden">
             <div class="row flex-nowrap">
                 <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 "
-                     :style="'background-color : ' + project.color_hash">
+                     :style="'background-color : ' + (project.color_hash ?? '#fd6528')">
                     <div
                         class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-4 text-white min-vh-90">
                         <span

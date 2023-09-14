@@ -11,7 +11,7 @@
                         data-bs-target="#storeEventModal"
                         data-bs-toggle="modal"
                         class="btn px-sm-4 text-light  text-nowrap mb-2"
-                        :style="'background-color: ' + project.color_hash">
+                        :style="'background-color : ' + (project.color_hash ?? '#fd6528')">
                         Add Event <i class="fa fa-plus ms-2"></i>
                     </button>
                 </div>
