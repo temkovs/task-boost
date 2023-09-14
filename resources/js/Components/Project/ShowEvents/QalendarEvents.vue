@@ -117,7 +117,7 @@ const getCalendarEventsArr = () => {
                 time: eventTime,
                 description,
                 with: attendees,
-                color: eventsColors.find(item => item.hash_code === color).label,
+                color: color? eventsColors.find(item => item.hash_code === color).label : eventsColors[0].label,
                 location,
                 isEditable: true,
             };

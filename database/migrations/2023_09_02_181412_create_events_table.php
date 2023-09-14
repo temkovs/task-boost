@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('start_time')->nullable();
             $table->string('end_time')->nullable();
             $table->tinyText('attendees')->nullable();
-            $table->string('color')->default("#F4B400");
+            $table->string('color')->nullable()->default("#F4B400");
             $table->string('location')->nullable();
             $table->timestamps();
         });
