@@ -23,7 +23,7 @@ class TaskRequest extends FormRequest
             'description' => ['nullable', 'max:1000'],
             'priority' => ['required', Rule::in([PriorityType::HIGH->value, PriorityType::MID->value, PriorityType::LOW->value])],
             'status' => ['nullable', Rule::in(StatusType::TO_DO->value, StatusType::IN_PROGRESS->value, StatusType::DONE->value)],
-            'due_date' => ['nullable', 'after:now'],
+            'due_date' => ['nullable', 'after_or_equal:now'],
         ];
     }
 }

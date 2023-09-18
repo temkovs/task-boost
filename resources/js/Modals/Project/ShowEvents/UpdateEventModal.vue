@@ -145,6 +145,7 @@ const onShow = () => {
         {},
         {
             preserveState: true,
+            preserveScroll: true,
         }
     );
 };
